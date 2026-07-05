@@ -36,20 +36,6 @@ The datasets and pretrained checkpoints are not included in this repository.
 Please prepare SYSU-MM01 or RegDB separately and update the paths in the
 configuration files before training or evaluation.
 
-## Example Commands
-
-```bash
-pip install -r requirements.txt
-python -m compileall configs data engine layers models utils train.py test.py
-```
-
-Training and evaluation require the external datasets and suitable GPU memory:
-
-```bash
-python train.py --cfg configs/SYSU.yml --infonce_temp 0.1 --infonce_weight 0.1
-python test.py --cfg configs/SYSU.yml --checkpoint /path/to/checkpoint.pth
-```
-
 ## Acknowledgement
 
 This work is based on the official implementation of:
