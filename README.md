@@ -23,6 +23,33 @@ RGB-IR feature gap.
 - Organized the code and documentation for MSc research and PhD application
   portfolio review.
 
+## Code Overview
+
+- `models/baseline.py`: original SAAI baseline model kept for comparison.
+- `models/baseline_infonce.py`: my modified model with bidirectional
+  cross-modality InfoNCE.
+- `train.py`: training entry configured to use `baseline_infonce.py`.
+- `test.py`: evaluation entry configured for the InfoNCE model checkpoint.
+- `configs/`: dataset and training configuration files.
+
+The datasets and pretrained checkpoints are not included in this repository.
+Please prepare SYSU-MM01 or RegDB separately and update the paths in the
+configuration files before training or evaluation.
+
+## Example Commands
+
+```bash
+pip install -r requirements.txt
+python -m compileall configs data engine layers models utils train.py test.py
+```
+
+Training and evaluation require the external datasets and suitable GPU memory:
+
+```bash
+python train.py --cfg configs/SYSU.yml --infonce_temp 0.1 --infonce_weight 0.1
+python test.py --cfg configs/SYSU.yml --checkpoint /path/to/checkpoint.pth
+```
+
 ## Acknowledgement
 
 This work is based on the official implementation of:
