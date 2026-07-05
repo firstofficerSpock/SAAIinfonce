@@ -38,24 +38,22 @@ configuration files before training or evaluation.
 
 ## Results
 
-The following results compare the original SAAI baseline with my
-InfoNCE-enhanced version. Metrics are reported as Rank-1 / mAP (%).
+The following results are reported in my MSc dissertation. Metrics are
+reported as Rank-1 / mAP (%).
 
 ### SYSU-MM01
 
-| Setting | SAAI | SAAI + InfoNCE | Change |
-|---|---:|---:|---:|
-| All-search, single-shot | 75.90 / 77.03 | 75.28 / 76.22 | -0.62 / -0.81 |
-| All-search, multi-shot | 82.86 / 82.39 | 82.56 / 81.72 | -0.30 / -0.67 |
-| Indoor-search, single-shot | 83.20 / 88.01 | 83.80 / 88.12 | +0.60 / +0.11 |
-| Indoor-search, multi-shot | 90.73 / 91.30 | 92.14 / 92.25 | +1.41 / +0.95 |
+| Method | All-search single-shot | All-search multi-shot | Indoor-search single-shot | Indoor-search multi-shot |
+|---|---:|---:|---:|---:|
+| SAAI | 75.90 / 77.03 | 82.86 / 82.39 | 83.20 / 88.01 | 90.73 / 91.30 |
+| SAAI with InfoNCE | 75.28 / 76.22 | 82.56 / 81.72 | 83.80 / 88.12 | 92.14 / 92.25 |
 
 ### RegDB
 
-| Setting | SAAI | SAAI + InfoNCE | Change |
-|---|---:|---:|---:|
-| Visible-to-infrared | 91.07 / 91.45 | 92.38 / 93.30 | +1.31 / +1.85 |
-| Infrared-to-visible | 92.09 / 92.01 | 93.06 / 93.52 | +0.97 / +1.51 |
+| Method | Visible-to-infrared | Infrared-to-visible |
+|---|---:|---:|
+| SAAI | 91.07 / 91.45 | 92.09 / 92.01 |
+| SAAI with InfoNCE | 92.38 / 93.30 | 93.06 / 93.52 |
 
 ## Acknowledgement
 
