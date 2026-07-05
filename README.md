@@ -1,32 +1,34 @@
 # SAAI-InfoNCE
 
-This repository is prepared as part of my MSc research project on
-visible-infrared person re-identification. It is based on the ICCV 2023
-SAAI framework and explores an additional bidirectional cross-modality
-InfoNCE objective for RGB-IR feature alignment.
+This repository contains an InfoNCE-enhanced extension of the ICCV 2023
+SAAI framework for visible-infrared person re-identification. The modification
+introduces bidirectional cross-modality contrastive supervision to improve
+RGB-IR feature alignment.
 
 ## Project Scope
 
 Visible-infrared person re-identification aims to match person images
 across RGB and infrared cameras. The original SAAI model provides a strong
-semantic alignment and affinity inference baseline. My extension studies
-whether an explicit cross-modality contrastive loss can further reduce the
-RGB-IR feature gap.
+semantic alignment and affinity inference baseline. This extension integrates
+an InfoNCE-based contrastive objective so that features from the same identity
+but different modalities are pulled closer in the embedding space, while
+features from different identities are pushed apart.
 
-## My Contributions
+## Contributions
 
-- Reproduced and analyzed the SAAI baseline codebase for visible-infrared
-  person re-identification.
-- Added a bidirectional cross-modality InfoNCE loss between visible and
-  infrared features.
-- Compared the modified training objective with the original baseline design.
-- Organized the code and documentation for MSc research and PhD application
-  portfolio review.
+- Integrates bidirectional cross-modality InfoNCE into the SAAI training
+  objective for RGB-IR person re-identification.
+- Uses visible-to-infrared and infrared-to-visible contrastive matching to
+  encourage modality-invariant identity representations.
+- Keeps the original SAAI baseline implementation for direct comparison with
+  the InfoNCE-enhanced variant.
+- Reports evaluations on SYSU-MM01 and RegDB under standard cross-modality
+  Re-ID protocols.
 
 ## Code Overview
 
 - `models/baseline.py`: original SAAI baseline model kept for comparison.
-- `models/baseline_infonce.py`: my modified model with bidirectional
+- `models/baseline_infonce.py`: modified model with bidirectional
   cross-modality InfoNCE.
 - `train.py`: training entry configured to use `baseline_infonce.py`.
 - `test.py`: evaluation entry configured for the InfoNCE model checkpoint.
@@ -38,8 +40,8 @@ configuration files before training or evaluation.
 
 ## Results
 
-The following results are reported in my MSc dissertation. Metrics are
-reported as Rank-1 / mAP (%).
+The following results summarize the evaluation of the original SAAI baseline
+and the InfoNCE-enhanced variant. Metrics are reported as Rank-1 / mAP (%).
 
 ### SYSU-MM01
 
@@ -63,7 +65,7 @@ This work is based on the official implementation of:
 Affinity Inference**, ICCV 2023.
 
 The original SAAI codebase and paper are credited to the original authors.
-This repository documents my own research modifications and experiments on
+This repository documents the InfoNCE-based modifications and experiments on
 top of that baseline.
 
 ## Citation
